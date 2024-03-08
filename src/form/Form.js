@@ -6,7 +6,13 @@ export default class Form extends Component {
         super(props)
     
         this.state = {
-             
+            firstNameData: '',
+            lastNameData: '',
+            emailData: '',
+
+            submitted: false,
+
+            allValid: false
         }
     }
     

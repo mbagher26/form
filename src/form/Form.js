@@ -23,6 +23,8 @@ export default class Form extends Component {
                 {/* Uncomment the next line to show the success message */}
                 {/* <div className="success-message">Success! Thank you for registering</div> */}
                 <input
+                    onChange={event => this.firstNameHandler(event)}
+                    value={this.state.firstNameData}
                     id="first-name"
                     className="form-field"
                     type="text"
@@ -32,6 +34,8 @@ export default class Form extends Component {
                 {/* Uncomment the next line to show the error message */}
                 {/* <span id="first-name-error">Please enter a first name</span> */}
                 <input
+                    onChange={event => this.lastNameHandler(event)}
+                    value={this.state.lastNameData}
                     id="last-name"
                     className="form-field"
                     type="text"
@@ -41,6 +45,8 @@ export default class Form extends Component {
                 {/* Uncomment the next line to show the error message */}
                 {/* <span id="last-name-error">Please enter a last name</span> */}
                 <input
+                    onChange={event => this.emailDataHandler(event)}
+                    value={this.state.emailData}
                     id="email"
                     className="form-field"
                     type="text"

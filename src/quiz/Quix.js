@@ -58,6 +58,8 @@ export default class Quiz extends React.Component {
                     {/* <div className='score-section'>
                         You scored 0 out of 4
                     </div> */}
+                    {this.state.questions.map(question =>(
+                        <div>
                         <div className='question-section'>
                             <div className='question-count'>
                                 <span>Question 1</span>/ 4
@@ -70,6 +72,9 @@ export default class Quiz extends React.Component {
                                 <button>Gorgan</button>
                                 <button>Shiraz</button>
                         </div>
+                        </div>
+                    ))}
+                        
             </div>
         )
     }

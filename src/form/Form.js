@@ -39,8 +39,7 @@ export default class Form extends Component {
         return (
             <div className="form-container">
             <form className="register-form" autoComplete="off">
-                {/* Uncomment the next line to show the success message */}
-                {/* <div className="success-message">Success! Thank you for registering</div> */}
+                <div className="success-message">Success! Thank you for registering</div>
                 <input
                     onChange={event => this.firstNameHandler(event)}
                     value={this.state.firstNameData}
@@ -50,8 +49,7 @@ export default class Form extends Component {
                     placeholder="First Name"
                     name="firstName"
                 />
-                {/* Uncomment the next line to show the error message */}
-                {/* <span id="first-name-error">Please enter a first name</span> */}
+                <span id="first-name-error">Please enter a first name</span>
                 <input
                     onChange={event => this.lastNameHandler(event)}
                     value={this.state.lastNameData}
@@ -61,8 +59,7 @@ export default class Form extends Component {
                     placeholder="Last Name"
                     name="lastName"
                 />
-                {/* Uncomment the next line to show the error message */}
-                {/* <span id="last-name-error">Please enter a last name</span> */}
+                <span id="last-name-error">Please enter a last name</span>
                 <input
                     onChange={event => this.emailDataHandler(event)}
                     value={this.state.emailData}
@@ -72,8 +69,7 @@ export default class Form extends Component {
                     placeholder="Email"
                     name="email"
                 />
-                {/* Uncomment the next line to show the error message */}
-                {/* <span id="email-error">Please enter an email address</span> */}
+                <span id="email-error">Please enter an email address</span>
                 <button className="form-field" type="submit">
                     Register
                 </button>

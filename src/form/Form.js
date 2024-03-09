@@ -18,13 +18,13 @@ export default class Form extends Component {
     
     firstNameHandler(event){
         this.setState({
-            firstNameData:this.event.target.value
+            firstNameData:event.target.value
         })
     }
 
     lastNameHandler(event){
         this.setState({
-            lastNameData: this.event.target.value
+            lastNameData: event.target.value
         })
     }
 

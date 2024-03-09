@@ -55,13 +55,21 @@ export default class Quiz extends React.Component {
         }
     }
 
+    clickHandler(){
+        if(this.state.questions.length < 3){
+            this.setState(prevState =>{
+                return {currentQuestion: prevState.currentQuestion +1}
+            })
+        }
+    }
+
     render() {
         return (
             <div className='app'>
                 {/* next div is for showing user score */}
-                    {/* <div className='score-section'>
-                        You scored 0 out of 4
-                    </div> */}
+                    <div className='score-section'>
+                       {` You scored ${this.state.currentQuestion} out of 4`}
+                    </div>
                     {this.state.questions.map(question =>(
                         <div key={question.id}>
                         <div className='question-section'>
@@ -72,7 +80,7 @@ export default class Quiz extends React.Component {
                         </div>
                         <div className='answer-section'>
                             
-                                {question.answerOptions.map(answer =>(<button key={answer.id}>{answer.answerText}</button>))}
+                                {question.answerOptions.map(answer =>(<button onClick={event =>this.clickHandler(event)} key={answer.id}>{answer.answerText}</button>))}
                                 
                         </div>
                         </div>

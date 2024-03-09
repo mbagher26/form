@@ -34,12 +34,30 @@ export default class Form extends Component {
         })
     }
 
+    onSubmitted(event){
+        event.preventDefault();
+        this.setState({
+            submitted:true
+        })
+        if(this.state.firstNameData && this.state.lastNameData && this.state.emailData){
+            this.setState({
+                allValid:true
+                
+            })
+            
+        }
+        setTimeout(() => {
+           this.setState({
+            allValid:false
+           }) 
+        }, 3000);
+    }
 
     render() {
         return (
             <div className="form-container">
             <form className="register-form" autoComplete="off">
-                <div className="success-message">Success! Thank you for registering</div>
+                {this.state.allValid && <div className="success-message">Success! Thank you for registering</div>}
                 <input
                     onChange={event => this.firstNameHandler(event)}
                     value={this.state.firstNameData}
@@ -49,7 +67,7 @@ export default class Form extends Component {
                     placeholder="First Name"
                     name="firstName"
                 />
-                <span id="first-name-error">Please enter a first name</span>
+                {(this.state.submitted && !this.state.firstNameData) ? <span id="first-name-error">Please enter a first name</span> : null}
                 <input
                     onChange={event => this.lastNameHandler(event)}
                     value={this.state.lastNameData}
@@ -59,7 +77,7 @@ export default class Form extends Component {
                     placeholder="Last Name"
                     name="lastName"
                 />
-                <span id="last-name-error">Please enter a last name</span>
+                {(this.state.submitted&&!this.state.lastNameData) ? <span id="last-name-error">Please enter a last name</span>:null}
                 <input
                     onChange={event => this.emailDataHandler(event)}
                     value={this.state.emailData}
@@ -69,8 +87,8 @@ export default class Form extends Component {
                     placeholder="Email"
                     name="email"
                 />
-                <span id="email-error">Please enter an email address</span>
-                <button className="form-field" type="submit">
+                {(this.state.submitted &&!this.state.emailData) ? <span id="email-error">Please enter an email address</span> : null}
+                <button className="form-field" type="submit" onClick={event => this.onSubmitted(event)}>
                     Register
                 </button>
             </form>

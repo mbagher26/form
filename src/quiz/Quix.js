@@ -62,19 +62,17 @@ export default class Quiz extends React.Component {
                         <div>
                         <div className='question-section'>
                             <div className='question-count'>
-                                <span>Question 1</span>/ 4
+                                <span>{this.state.currentQuestion}</span>/ 4
                             </div>
-                            <div className='question-text'>Where is Iran capital?</div>
+                            <div className='question-text'>{question.questionText}</div>
                         </div>
                         <div className='answer-section'>
-                                <button>Tehran</button>
-                                <button>Tabriz</button>
-                                <button>Gorgan</button>
-                                <button>Shiraz</button>
+                            
+                                {question.answerOptions.map(answer =>(<button>{answer.answerText}</button>))}
+                                
                         </div>
                         </div>
                     ))}
-                        
             </div>
         )
     }

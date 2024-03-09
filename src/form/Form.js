@@ -16,6 +16,25 @@ export default class Form extends Component {
         }
     }
     
+    firstNameHandler(event){
+        this.setState({
+            firstNameData:this.event.target.value
+        })
+    }
+
+    lastNameHandler(event){
+        this.setState({
+            lastNameData: this.event.target.value
+        })
+    }
+
+    emailDataHandler(event){
+        this.setState({
+            emailData:event.target.value
+        })
+    }
+
+
     render() {
         return (
             <div className="form-container">

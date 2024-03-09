@@ -68,7 +68,7 @@ export default class Quiz extends React.Component {
             <div className='app'>
                 {/* next div is for showing user score */}
                     <div className='score-section'>
-                       {` You scored ${this.state.currentQuestion} out of 4`}
+                       {` You scored ${this.state.score} out of 4`}
                     </div>
                     {this.state.questions.map(question =>(
                         <div key={question.id}>

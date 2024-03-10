@@ -16,9 +16,28 @@ export default class Ticket extends React.Component {
         }
     }
 
+    clickHandler(event) {
+        let mainCountry = event.target.value
+        let mainCountryCities = this.state.countriesData[mainCountry]
+
+        if(event.target.value !== -1){
+            
+            this.setState({
+                mainCountryCities: mainCountryCities
+            });
+        }else{
+            this.setState({
+                mainCountryCities: []
+            })
+        }
+
+    }
+
+
 
     render() {
         return (
+
             <div className="container">
                 <div className="col-md-6 box">
                     <input className="fnameInput" placeholder="First Name" />
@@ -33,19 +52,29 @@ export default class Ticket extends React.Component {
                 <div className="col-md-6 box">
                     <input className="emailInput" placeholder="Email" />
                 </div>
+
                 <div className="col-md-6 box">
-                    <select className="countrySelect">
+                    <select className="countrySelect" onChange={event => this.clickHandler(event)} >
                         <option value="-1">Please Select ...</option>
                         <option className="option" value="Iran">Iran</option>
                         <option className="option" value="Turkey">Turkey</option>
-                        <option className="option" value="US">United State</option>
+                        <option className="option" value="US">US</option>
                     </select>
                 </div>
+
                 <div className="col-md-6 box">
                     <select className="citySelect">
-                            <option value="-1">Please Select City</option>
+                        {
+                           this.state.mainCountryCities.length ? (this.state.mainCountryCities.map((city) => (
+                                <option value={city}>{city}</option>
+                            ))
+                            ):(
+                                <option value="-1">Please Select ...</option>
+                            )
+                        }
                     </select>
                 </div>
+
                 <div className="col-md-12 box">
                     <button className="btn">Book a ticket</button>
                 </div>

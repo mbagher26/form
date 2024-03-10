@@ -1,12 +1,14 @@
 import './App.css';
+import Ticket from './ticket/Ticket';
 // import Form from './form/Form';
-import Quiz from './quiz/Quix';
+// import Quiz from './quiz/Quix';
 
 function App() {
   return (
     <div className="App">
       {/* <Form/> */}
-      <Quiz/>
+      {/* <Quiz/> */}
+      <Ticket/>
     </div>
   );
 }

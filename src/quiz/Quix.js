@@ -55,36 +55,46 @@ export default class Quiz extends React.Component {
         }
     }
 
-    clickHandler(){
-        if(this.state.questions.length < 3){
+    clickHandler(isCorrect){
+        if(isCorrect){
+            this.setState(prevState =>{
+                return {score:prevState.score + 1}
+            })
+        }
+        if(this.state.currentQuestion <= 3){
             this.setState(prevState =>{
                 return {currentQuestion: prevState.currentQuestion +1}
             })
         }
+        if(this.state.currentQuestion === 3){
+            this.setState({
+                showScore:true
+            })
+        }
+        
     }
 
     render() {
         return (
             <div className='app'>
-                {/* next div is for showing user score */}
-                    <div className='score-section'>
+                    {this.state.showScore && <div className='score-section'>
                        {` You scored ${this.state.score} out of 4`}
-                    </div>
-                    {this.state.questions.map(question =>(
-                        <div key={question.id}>
-                        <div className='question-section'>
-                            <div className='question-count'>
-                                <span>{this.state.currentQuestion}</span>/ 4
-                            </div>
-                            <div className='question-text'>{question.questionText}</div>
+                    </div>}
+                    
+                       {this.state.currentQuestion <= 3 &&
+
+                         <div>
+                         <div className='question-section'>
+                             <div className='question-count'>
+                                 <span>{this.state.currentQuestion}</span>/ 4
+                             </div>
+                             <div className='question-text'>{this.state.questions[this.state.currentQuestion].questionText}</div>
+                         </div>
+                         <div className='answer-section'>
+                                {this.state.questions[this.state.currentQuestion].answerOptions.map(answer =>(<button onClick={event =>this.clickHandler(answer.isCorrect,event)} key={answer.id}>{answer.answerText}</button>))}
+                         </div>
                         </div>
-                        <div className='answer-section'>
-                            
-                                {question.answerOptions.map(answer =>(<button onClick={event =>this.clickHandler(event)} key={answer.id}>{answer.answerText}</button>))}
-                                
-                        </div>
-                        </div>
-                    ))}
+                        }
             </div>
         )
     }

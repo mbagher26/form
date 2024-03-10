@@ -61,14 +61,13 @@ export default class Quiz extends React.Component {
                 return {score:prevState.score + 1}
             })
         }
-        if(this.state.currentQuestion <= 3){
-            this.setState(prevState =>{
-                return {currentQuestion: prevState.currentQuestion +1}
-            })
-        }
-        if(this.state.currentQuestion === 3){
+        if(this.state.currentQuestion === 3 ){
             this.setState({
                 showScore:true
+            })
+        }else{
+            this.setState(prevState =>{
+                return {currentQuestion: prevState.currentQuestion +1}
             })
         }
         
@@ -77,16 +76,13 @@ export default class Quiz extends React.Component {
     render() {
         return (
             <div className='app'>
-                    {this.state.showScore && <div className='score-section'>
+                    {this.state.showScore ? (<div className='score-section'>
                        {` You scored ${this.state.score} out of 4`}
-                    </div>}
-                    
-                       {this.state.currentQuestion <= 3 &&
-
+                    </div>):(
                          <div>
                          <div className='question-section'>
                              <div className='question-count'>
-                                 <span>{this.state.currentQuestion}</span>/ 4
+                                 <span>Question{this.state.currentQuestion}</span>/ {this.state.questions.length}
                              </div>
                              <div className='question-text'>{this.state.questions[this.state.currentQuestion].questionText}</div>
                          </div>
@@ -94,7 +90,9 @@ export default class Quiz extends React.Component {
                                 {this.state.questions[this.state.currentQuestion].answerOptions.map(answer =>(<button onClick={event =>this.clickHandler(answer.isCorrect,event)} key={answer.id}>{answer.answerText}</button>))}
                          </div>
                         </div>
-                        }
+                    )
+                    
+                    }
             </div>
         )
     }

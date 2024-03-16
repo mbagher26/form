@@ -1,8 +1,4 @@
-body {
-    background-image: url("../../public//image/sky.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
   .fnameInput,
   .lnameInput,
   .phoneInput,
@@ -29,7 +25,7 @@ body {
     padding-bottom: 10px;
   }
   .container {
-    margin-top: 100px;
+    width: 900px;
     padding-top: 60px;
     padding-bottom: 60px;
     background-color: rgba(255, 255, 255, 0.2);

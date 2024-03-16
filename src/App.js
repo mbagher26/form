@@ -1,6 +1,6 @@
 import Ticket from './ticket/Ticket';
 import Form from './form/Form';
-import Quiz from './quiz/Quix';
+import Quiz from './quiz/Quiz';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {

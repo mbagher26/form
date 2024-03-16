@@ -87,7 +87,7 @@ export default class Quiz extends React.Component {
                              <div className='question-text'>{this.state.questions[this.state.currentQuestion].questionText}</div>
                          </div>
                          <div className='answer-section'>
-                                {this.state.questions[this.state.currentQuestion].answerOptions.map(answer =>(<button onClick={event =>this.clickHandler(answer.isCorrect,event)} key={answer.id}>{answer.answerText}</button>))}
+                                {this.state.questions[this.state.currentQuestion].answerOptions.map(answer =>(<button className='answer-button' onClick={event =>this.clickHandler(answer.isCorrect,event)} key={answer.id}>{answer.answerText}</button>))}
                          </div>
                         </div>
                     )
